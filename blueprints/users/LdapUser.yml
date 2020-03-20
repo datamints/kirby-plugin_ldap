@@ -1,0 +1,8 @@
+title: LdapUser
+description: The account logs in with Ldap and is an admin.
+
+sections:
+	ldapID:
+		type: info
+		label: ldapDN
+		text: "{{ user.getLdapDn }}"
