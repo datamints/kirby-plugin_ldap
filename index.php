@@ -17,5 +17,8 @@ Kirby::plugin('datamints/ldap', [
                 LdapUser::findOrCreateIfLdap($this->request()->get('email'));
             }
         }
+    ],
+    'options' => [
+        'is_admin' => true
     ]
 ]);

@@ -5,7 +5,7 @@ Overview
 -
 With this plugin, you can login into Kirby with your LDAP-credentials (mail + password).
 It creates a user for you at your first login and loads your full name into your Kirby-User.
-A user, that logged in with ldap, is always admin and has all permissions.
+Per default, a user that logged in with ldap, is admin and has all permissions. See part "Configure"
 Language of new created user is en as default, but can be changed in backend.
 
 Install
@@ -24,12 +24,15 @@ configure your ldap-server:
     <?php
         return [
             ...
-            'datamints.ldap.host' => "ldap://subdomain.domain.tld:port", //host of ldap-server
-            'datamints.ldap.bind_dn' => "cn=common-name,dc=domain,dc=tld", //login username for global access
-            'datamints.ldap.bind_pw' => "[password that fits to ldap_bind_dn", //login password for global access
-            'datamints.ldap.base_dn' => "ou=organizational-unit,dc=domain,dc=tld", //path to search for users
+            'datamints.ldap.host'     => "ldap://subdomain.domain.tld:port", //host of ldap-server
+            'datamints.ldap.bind_dn'  => "cn=common-name,dc=domain,dc=tld", //login username for global access
+            'datamints.ldap.bind_pw'  => "[password that fits to ldap_bind_dn", //login password for global access
+            'datamints.ldap.base_dn'  => "ou=organizational-unit,dc=domain,dc=tld", //path to search for users
+            'datamints.ldap.is_admin' => false, //optional. Is every Ldap-user an admin? Default: true
         ];
     ?>
+
+if you want to change specific permissions (not just admin true/false), copy site/plugins/datamints_ldap/blueprints/users/LdapUser.yml to site/blueprints/users/LdapUser.yml and change them in that new file as described in https://getkirby.com/docs/guide/users/permissions
 
 Additional information
 -

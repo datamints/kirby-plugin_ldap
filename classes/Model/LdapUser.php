@@ -31,13 +31,12 @@ class LdapUser extends User
 
     /**
      * Checks if this user has the admin role
-     * Ldap-Users are always admins.
      *
      * @return bool
      */
     public function isAdmin(): bool
     {
-        return true;
+        return option('datamints.ldap.is_admin');
     }
 
     /**
